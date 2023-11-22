@@ -1,0 +1,11 @@
+FROM dockstart
+
+# Install Java
+RUN apt update && apt install -y default-jdk
+
+# Install nvim plugin for java
+RUN cd ~/.config/nvim/coc/extensions/ && npm install coc-java --only=prod
+
+WORKDIR /root/
+
+CMD ["/bin/bash"]
